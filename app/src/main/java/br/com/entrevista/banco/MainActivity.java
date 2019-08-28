@@ -2,6 +2,7 @@ package br.com.entrevista.banco;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.security.keystore.UserPresenceUnavailableException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText edtEmail;
     private EditText edtSenha;
 
+    public static final String Ref_login = "INFORMACOES_LOGIN_AUTOMATICO";
+
     //Loader
     private RelativeLayout mLoad;
 
@@ -46,6 +49,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         iniciaViews();
+
+        SharedPreferences prefs = getSharedPreferences(Ref_login, MODE_PRIVATE);
+        String login= prefs.getString("login", null);
+        if (login!= null) {
+            edtEmail.setText(login);
+            // existe configuração salvar
+        } else {
+            // não existe configuração salvar
+        }
         iniciaAcoes();
     }
 
@@ -125,9 +137,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void doLogin(String user, String password) {
-
+        SharedPreferences.Editor editor = getSharedPreferences(Ref_login, MODE_PRIVATE).edit();
         mLoad.setVisibility(View.VISIBLE);
         mContasUsuario = null;
+
+        editor.putString("login", user);
+        editor.commit();
+
 
         final RequestBody formBody = new FormEncodingBuilder()
                 .add("user", user)
