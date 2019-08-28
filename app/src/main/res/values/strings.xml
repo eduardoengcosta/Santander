@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Banco</string>
+
+    <!-- MAIN SCREEN -->
+    <string name="desc_back">Ícone Voltar</string>
+    <string name="balance">Saldo</string>
+    <string name="account">Conta</string>
+    <string name="account_value">%1$s / %2$s</string>
+    <string name="balance_value">R$%1$.2f</string>
+    <string name="recent">Recentes</string>
+    <string name="error_statements">Erro ao baixar dados do usuário</string>
 </resources>

@@ -2,7 +2,8 @@
 <resources>
     <color name="colorPrimary">#3B48EE</color>
     <color name="colorPrimaryDark">#010A53</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#512DA8</color>
     <color name="colorViewLine">#DDDDDD</color>
     <color name="colorFieldFocused">#E0E1EB</color>
+    <color name="shadowBack">#60000000</color>
 </resources>
